@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yugao <yugao@student.42madrid.com>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/13 00:08:38 by yugao             #+#    #+#             */
+/*   Updated: 2024/05/13 00:08:39 by yugao            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "main.hpp"
 
 std::string get_main_filename(const std::string &filename){
@@ -23,14 +35,14 @@ int main(int argc, char **argv){
 	std::string s1 		 = argv[2];
 	std::string s2		 = argv[3];
 
-    std::ifstream infile(filename);
+    std::ifstream infile(filename.c_str());
     if (!infile.is_open()){
 
         std::cerr << "File no exist!!\n";
         return 1;
     } 
     std::string outfilename = get_main_filename (filename) + ".replace";
-    std::ofstream outfile(outfilename);
+    std::ofstream outfile(outfilename.c_str());
     if (!outfile.is_open()){
 
         std::cerr << "Error when try to creat new document!!\n";
